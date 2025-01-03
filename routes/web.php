@@ -23,8 +23,6 @@ Route::get('/prueba',function(){
     $post->save();
 
     // $post =Post::get();
-
-
     return $post;
 
 });
