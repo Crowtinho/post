@@ -17,9 +17,17 @@ class PostController extends Controller
         return "aqui se muestra el formulario create";
     }
 
+    public function show($id){
+        // $posts=Post::all();
+        $post = Post::findOrFail($id); //para llamar un solo registro
+        return view('posts.show', compact('post'));
+    }
+
     public function extens($post,$category = null){
         if ($category==null) {
-            return "se mostrara el post {$post}";
+            // $post = Post::find($post);
+            return $post;
+            // return "se mostrara el post {$post}";
         }else{
             return "se mostrara el post {$post} de la categoria {$category}";
         }

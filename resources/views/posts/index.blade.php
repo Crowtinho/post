@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Aqui se mostrara el contenido de los posts</h1>
+    <a href="/posts/create">Nuevo post</a>
+    <br>
+    <br>
     <table border="1" style="border-collapse: collapse; width: 100%;">
         <thead>
           <tr>
@@ -20,7 +23,7 @@
             @foreach ($posts as $post)
             <tr>
                 <td>
-                    <a href="/posts/{{$post->title}}">{{$post->title}}</a>
+                    <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                 </td>
                 <td>{{$post->category}}</td>
                 <td>{{$post->content}}</td>
