@@ -8,7 +8,7 @@ use App\Models\Post;
 /* Route::get('/', function () {
     return view('welcome');
 }); */
-Route::get('/',[HomeController::class]);
+Route::get('/',[HomeController::class,'index']);
 Route::get('/posts',[PostController::class,'index']);
 Route::get('/posts/create',[PostController::class,'create']);
 Route::get('/posts/{post}/{category?}', [PostController::class,'extens']);
