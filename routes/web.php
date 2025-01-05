@@ -9,13 +9,27 @@ use App\Models\Post;
     return view('welcome');
 }); */
 Route::get('/',[HomeController::class,'index']);
+
 Route::get('/posts',[PostController::class,'index'])->name('posts.index');
+
 Route::get('/posts/create',[PostController::class,'create']);
+
 Route::post('posts',[PostController::class,'store']);
+
 Route::get('/posts/{id}',[PostController::class,'show'])->name('posts.sow');
+
+Route::get('/posts/{post}/edit', [PostController::class,'edit']);
+
 Route::get('/posts/{post}/{category?}', [PostController::class,'extens']);
 
-Route::get('/prueba',function(){
+Route::put('/posts/{post}',[PostController::class, 'update']);
+
+Route::delete('/posts/{post}',[PostController::class, 'delete']);
+
+
+
+
+/* Route::get('/prueba',function(){
 
     $post = new Post;
 
@@ -27,6 +41,6 @@ Route::get('/prueba',function(){
     // $post =Post::get();
     return $post;
 
-});
+}); */
 
 

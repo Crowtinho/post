@@ -10,6 +10,20 @@
     <h1>{{ $post->title }}</h1>
     <h2>Categoria: {{ $post->category }}</h2>
     <p>{{ $post->content }}</p>
-    <a href="/posts">Volver al post</a>
+    <button>
+        <a href="/posts">Volver al post</a>
+    </button>
+    <button>
+        <a href="/posts/{{$post->id}}/edit">Editar</a>
+    </button>
+    <br>
+    <br>
+    <form action="/posts/{{$post->id}}" method="POST">
+
+        @csrf
+        @method('DELETE')
+        <button type="submit">Eliminar</button>
+    </form>
+    
 </body>
 </html>
