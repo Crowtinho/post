@@ -22,4 +22,20 @@ class Post extends Model
         );
 
     }
+     protected function category():Attribute{
+        return Attribute:: make(
+            get:function($value){
+                switch($value){
+                    case 'ficcion':
+                        $value = 'ficción';
+                        break;
+                    case 'accion':
+                        $value = 'acción';
+                        break;
+                }
+                return ucfirst($value);
+            }
+        );
+
+     }
 }
