@@ -11,7 +11,8 @@ use App\Models\Post;
 Route::get('/',[HomeController::class,'index']);
 Route::get('/posts',[PostController::class,'index'])->name('posts.index');
 Route::get('/posts/create',[PostController::class,'create']);
-Route::get('/posts/{id}',[PostController::class,'show']);
+Route::post('posts',[PostController::class,'store']);
+Route::get('/posts/{id}',[PostController::class,'show'])->name('posts.sow');
 Route::get('/posts/{post}/{category?}', [PostController::class,'extens']);
 
 Route::get('/prueba',function(){

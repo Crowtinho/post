@@ -14,7 +14,21 @@ class PostController extends Controller
     }
 
     public function create(){
-        return "aqui se muestra el formulario create";
+        return view('posts.create');
+    }
+    public function store(Request $request){
+        //  return request()->title; 
+        // return $request->all();
+        $post = new Post();
+
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->category = $request->category;
+
+        $post->save();
+
+        return redirect('/posts');
+
     }
 
     public function show($id){
