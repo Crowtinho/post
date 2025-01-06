@@ -13,17 +13,26 @@
     <button>
         <a href="/posts">Volver al post</a>
     </button>
-    <button>
+    <button onclick="return confirm('¿Estás seguro que desea editar  el post?');">
         <a href="/posts/{{$post->id}}/edit">Editar</a>
     </button>
     <br>
     <br>
-    <form action="/posts/{{$post->id}}" method="POST">
 
+    <form action="/posts/{{$post->id}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este elemento?');">
         @csrf
         @method('DELETE')
         <button type="submit">Eliminar</button>
     </form>
+    
+
+
+{{--     <form action="/posts/{{$post->id}}" method="POST">
+
+        @csrf
+        @method('DELETE')
+        <button type="submit">Eliminar</button>
+    </form> --}}
     
 </body>
 </html>

@@ -31,7 +31,9 @@
         <textarea name="content" id="content" cols="30" rows="10" required>{{$post->content}}</textarea>
         <br><br>
         <button type="submit">Actualizar post</button>
-        <button><a href="/posts">Regresar</a></button>
+        <button onclick="return confirm('¿Estás seguro de que deseas regresar, los datos no se actualizaran?');">
+            <a href="/posts">Regresar</a>
+        </button>
     </form>
 </body>
 </html>

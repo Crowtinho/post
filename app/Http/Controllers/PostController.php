@@ -10,8 +10,19 @@ use function Pest\Laravel\delete;
 class PostController extends Controller
 {
     public function index(){
+
+        // optenerlos paginados
+        //$posts = Post::paginate();
+        
+        /* optener los posts
         $posts = Post::all();
-        // return $post;
+        return $posts; */
+
+        /* obtenerlos ordenados
+        $posts = Post::orderBy('id','asc')->get(); */
+
+        // obtenerlos ordenados y paginados
+        $posts = Post::orderBy('id','asc')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 
