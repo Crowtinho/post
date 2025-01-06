@@ -1,0 +1,8 @@
+.boton{
+    background-color: aquamarine;
+    border-radius: 5px;
+    text-decoration:dashed;
+}
+.boton:hover{
+    background-color: red;
+}

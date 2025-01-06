@@ -27,8 +27,13 @@
         <br>
         <textarea name="content" id="content" cols="30" rows="10" required></textarea>
         <br><br>
-        <button type="submit">Crear post</button>
-        <button><a href="/posts">Regresar</a></button>
+        <button type="submit" onclick="return confirm('¿Desea crear el post?');">Crear post</button>
+
+        <button onclick="return confirm('¿Estás seguro de que deseas regresar, los datos se borraran?');">
+            <a href="/posts" style="text-decoration: none; color: inherit;">Regresar</a>
+        </button>
+        
+        {{-- <button><a href="/posts">Regresar</a></button> --}}
 
 
     </form>
