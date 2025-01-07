@@ -9,23 +9,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model
 {
     use HasFactory;
-    protected $table ='posts';
+    protected $table = 'posts';
 
-    protected function title():Attribute{
-        return Attribute:: make(
-            set:function($value){
+    protected function title(): Attribute
+    {
+        return Attribute::make(
+            set: function ($value) {
                 return strtolower($value);
             },
-            get: function($value){
+            get: function ($value) {
                 return ucfirst($value);
             }
         );
-
     }
-     protected function category():Attribute{
-        return Attribute:: make(
-            get:function($value){
-                switch($value){
+    protected function category(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                switch ($value) {
                     case 'ficcion':
                         $value = 'ficción';
                         break;
@@ -36,6 +37,10 @@ class Post extends Model
                 return ucfirst($value);
             }
         );
+    }
 
-     }
+/*     public function getRouteKeyName()
+    {
+        return 'title';   
+    } */
 }

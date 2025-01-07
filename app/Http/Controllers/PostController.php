@@ -44,9 +44,10 @@ class PostController extends Controller
 
     }
 
-    public function show($id){
+    public function show($post){
         // $posts=Post::all();
-        $post = Post::findOrFail($id); //para llamar un solo registro
+        // $post = Post::findOrFail($post); //para llamar un solo registro
+        $post = Post::find($post);
         return view('posts.show', compact('post'));
     }
 
@@ -78,7 +79,7 @@ class PostController extends Controller
         return redirect("/posts/{$post->id}");
 
     }
-    public function delete($post){
+    public function destroy($post){
         $post = Post::find($post);
         $post->delete();
         return redirect("/posts");

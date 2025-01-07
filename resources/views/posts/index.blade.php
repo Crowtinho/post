@@ -34,7 +34,7 @@
             <tr>
                 <td style="text-align:justify">
                     {{-- <a href="/posts/{{$post->id}}">{{$post->title}}</a> --}}
-                    <a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a>
+                    <a href="{{route('posts.show',$post)}}">{{$post->title}}</a>
                 </td>
                 <td>{{$post->category}}</td>
                 <td style="text-align:justify">{{$post->content}}</td>
