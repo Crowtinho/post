@@ -11,7 +11,7 @@
     <h2>Categoria: {{ $post->category }}</h2>
     <p>{{ $post->content }}</p>
     <button>
-        <a href="/posts">Volver al post</a>
+        <a href="{{route('posts.index')}}">Volver al post</a>
     </button>
     <button onclick="return confirm('¿Estás seguro que desea editar  el post?');">
         <a href="{{route('posts.edit',$post)}}">Editar</a>

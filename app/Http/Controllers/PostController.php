@@ -37,17 +37,18 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category = $request->category;
+        $post->slug = $request->slug;
 
         $post->save();
 
-        return redirect('/posts');
+        return redirect()->route('posts.index');
 
     }
 
-    public function show($post){
+    public function show( Post $post){
         // $posts=Post::all();
         // $post = Post::findOrFail($post); //para llamar un solo registro
-        $post = Post::find($post);
+        // $post = Post::findOrFail($post);
         return view('posts.show', compact('post'));
     }
 
@@ -61,28 +62,30 @@ class PostController extends Controller
         }
     }
 
-    public function edit($post){
-        $post = Post::find($post);
+    public function edit(Post $post){
+        // $post = Post::find($post);
         return view('posts.edit',compact('post'));
     }
 
-    public function update(Request $request, $post){
+    public function update(Request $request, Post $post){
         // return "aqui se actualizara el post {$post}";
-        $post = Post::find($post);
+        // $post = Post::find($post);
 
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category = $request->category;
+        $post->slug = $request->slug;
+
 
         $post->save();
 
-        return redirect("/posts/{$post->id}");
+        return redirect()->route('posts.index');
 
     }
-    public function destroy($post){
-        $post = Post::find($post);
+    public function destroy(Post $post){
+        // $post = Post::find($post);
         $post->delete();
-        return redirect("/posts");
+        return redirect()->route('posts.index');
     }
 
 }

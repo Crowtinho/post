@@ -22,7 +22,7 @@ class PostSeeder extends Seeder
         $post->timestamps = now();
         $post->save();
 
-        Post::factory(1000)->create();
+        Post::factory(5)->create();
         
     }
 }

@@ -39,8 +39,8 @@ class Post extends Model
         );
     }
 
-/*     public function getRouteKeyName()
+    public function getRouteKeyName()
     {
-        return 'title';   
-    } */
+        return 'slug';   
+    }
 }
