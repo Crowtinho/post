@@ -8,11 +8,14 @@
 </head>
 <body>
     <h1>Formulario para crear un nuevo post</h1>
-    <form action="/posts" method="POST">
+    <form action="{{route('posts.store')}}" method="POST">
 
         @csrf
         <label for="titulo">Titulo</label>
         <input type="text" name="title" id="title" required>
+        <br><br>
+        <label for="slug">Slug</label>
+        <input type="text" name="slug" id="slug" required>
         <br><br>
         <label for="category">Categoria</label>
         <select name="category" id="category" required>
@@ -30,7 +33,7 @@
         <button type="submit" onclick="return confirm('¿Desea crear el post?');">Crear post</button>
 
         <button onclick="return confirm('¿Estás seguro de que deseas regresar, los datos se borraran?');">
-            <a href="/posts" style="text-decoration: none; color: inherit;">Regresar</a>
+            <a href="{{route('posts.index')}}" style="text-decoration: none; color: inherit;">Regresar</a>
         </button>
         
         {{-- <button><a href="/posts">Regresar</a></button> --}}

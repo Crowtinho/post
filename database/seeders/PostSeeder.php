@@ -16,12 +16,13 @@ class PostSeeder extends Seeder
         $post = new Post();
 
         $post->title='titulo de prueba 1';
+        $post->slug = 'titulo-de-prueba-1';
         $post->content = 'contenido de prueba 1';
         $post->category = 'categoria 1';
         $post->timestamps = now();
         $post->save();
 
-        Post::factory(1000)->create();
+        Post::factory(5)->create();
         
     }
 }

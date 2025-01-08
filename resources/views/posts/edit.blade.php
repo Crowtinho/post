@@ -7,8 +7,8 @@
     <title>update form</title>
 </head>
 <body>
-    <h1>Formulario para crear un nuevo post</h1>
-    <form action="/posts/{{$post->id}}" method="POST">
+    <h1>Formulario para editar un post</h1>
+    <form action="{{route('posts.update',$post)}}" method="POST">
 
         @csrf
         @method('PUT')
@@ -17,9 +17,12 @@
         <label for="titulo">Titulo</label>
         <input type="text" name="title" id="title" value="{{$post->title}}" required>
         <br><br>
+        <label for="slug">Slug</label>
+        <input type="text" name="slug" id="slug" value="{{$post->slug}}" required>
+        <br><br>
         <label for="category">Categoria</label>
         <select name="category" id="category" required>
-            <option value=""disabled {{$post->category}} ? 'selected' : ''>Selecciona una categoria</option>
+            <option value=""disabled selected>{{$post->category}}</option>
             <option value="drama">Drama</option>
             <option value="accion">Acción</option>
             <option value="ficcion">Ficción</option>

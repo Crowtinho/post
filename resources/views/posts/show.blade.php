@@ -11,15 +11,15 @@
     <h2>Categoria: {{ $post->category }}</h2>
     <p>{{ $post->content }}</p>
     <button>
-        <a href="/posts">Volver al post</a>
+        <a href="{{route('posts.index')}}">Volver al post</a>
     </button>
     <button onclick="return confirm('¿Estás seguro que desea editar  el post?');">
-        <a href="/posts/{{$post->id}}/edit">Editar</a>
+        <a href="{{route('posts.edit',$post)}}">Editar</a>
     </button>
     <br>
     <br>
 
-    <form action="/posts/{{$post->id}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este elemento?');">
+    <form action="{{route('posts.destroy',$post)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este elemento?');">
         @csrf
         @method('DELETE')
         <button type="submit">Eliminar</button>

@@ -10,6 +10,7 @@ use App\Models\Post;
 }); */
 Route::get('/',[HomeController::class,'index']);
 
+/*
 Route::get('/posts',[PostController::class,'index'])->name('posts.index');
 
 Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
@@ -24,7 +25,9 @@ Route::get('/posts/{post}/{category?}', [PostController::class,'extens'])->name(
 
 Route::put('/posts/{post}',[PostController::class, 'update'])->name('posts.update');
 
-Route::delete('/posts/{post}',[PostController::class, 'delete'])->name('posts.delete');
+Route::delete('/posts/{post}',[PostController::class, 'delete'])->name('posts.delete'); */
+
+Route::resource('posts', PostController::class);
 
 
 
