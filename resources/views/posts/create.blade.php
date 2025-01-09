@@ -14,9 +14,9 @@
         <label for="titulo">Titulo</label>
         <input type="text" name="title" id="title" required>
         <br><br>
-        <label for="slug">Slug</label>
+{{--         <label for="slug">Slug</label>
         <input type="text" name="slug" id="slug" required>
-        <br><br>
+        <br><br> --}}
         <label for="category">Categoria</label>
         <select name="category" id="category" required>
             <option value=""disabled selected>Selecciona una categoria</option>

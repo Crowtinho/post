@@ -32,14 +32,16 @@ class PostController extends Controller
     public function store(Request $request){
         //  return request()->title; 
         // return $request->all();
-        $post = new Post();
+
+        Post::create($request->all());
+/*         $post = new Post();
 
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category = $request->category;
         $post->slug = $request->slug;
 
-        $post->save();
+        $post->save(); */
 
         return redirect()->route('posts.index');
 
@@ -52,6 +54,33 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
     }
 
+    
+    public function edit(Post $post){
+        // $post = Post::find($post);
+        return view('posts.edit',compact('post'));
+    }
+    
+    public function update(Request $request, Post $post){
+        // return "aqui se actualizara el post {$post}";
+        // $post = Post::find($post);
+        $post->update($request->all());
+    /*     $post->title = $request->title;
+        $post->content = $request->content;
+        $post->category = $request->category;
+        $post->slug = $request->slug; */
+        
+        
+        $post->save();
+        
+        return redirect()->route('posts.index');
+        
+    }
+    public function destroy(Post $post){
+        // $post = Post::find($post);
+        $post->delete();
+        return redirect()->route('posts.index');
+    }
+    
     public function extens($post,$category = null){
         if ($category==null) {
             // $post = Post::find($post);
@@ -61,31 +90,4 @@ class PostController extends Controller
             return "se mostrara el post {$post} de la categoria {$category}";
         }
     }
-
-    public function edit(Post $post){
-        // $post = Post::find($post);
-        return view('posts.edit',compact('post'));
-    }
-
-    public function update(Request $request, Post $post){
-        // return "aqui se actualizara el post {$post}";
-        // $post = Post::find($post);
-
-        $post->title = $request->title;
-        $post->content = $request->content;
-        $post->category = $request->category;
-        $post->slug = $request->slug;
-
-
-        $post->save();
-
-        return redirect()->route('posts.index');
-
-    }
-    public function destroy(Post $post){
-        // $post = Post::find($post);
-        $post->delete();
-        return redirect()->route('posts.index');
-    }
-
 }
