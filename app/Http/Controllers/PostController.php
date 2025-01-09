@@ -22,7 +22,7 @@ class PostController extends Controller
         $posts = Post::orderBy('id','asc')->get(); */
 
         // obtenerlos ordenados y paginados
-        $posts = Post::orderBy('id','asc')->paginate(10);
+        $posts = Post::orderBy('title','asc')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 

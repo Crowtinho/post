@@ -13,11 +13,15 @@ class Post extends Model
     use HasFactory;
     protected $table = 'posts';
 
-    protected $fillable = [
+/*     protected $fillable = [
         'title',
         'slug',
         'content',
         'category',
+    ]; */
+
+    protected $guarded =[
+        'is_active',
     ];
 
     protected function title(): Attribute
