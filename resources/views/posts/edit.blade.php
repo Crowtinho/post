@@ -12,17 +12,28 @@
 
         @csrf
         @method('PUT')
+        @if ($errors->any())
+        <div>
+            <h2>Errores:</h2>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
 
         <label for="titulo">Titulo</label>
-        <input type="text" name="title" id="title" value="{{$post->title}}" required>
+        <input type="text" name="title" id="title" value="{{old('title')}}" required>
+        {{-- <label for="slug">Slug</label> --}}
+        {{-- <input type="text" name="slug" id="slug" value="{{$post->slug}}" hidden> --}}
         <br><br>
-        {{-- <label for="slug">Slug</label>
-        <input type="text" name="slug" id="slug" value="{{$post->slug}}" required>
-        <br><br> --}}
         <label for="category">Categoria</label>
         <select name="category" id="category" required>
-            <option value="{{$post->category}}"selected >{{$post->category}}</option>
+            <option value="{{$post->category}}"selected >{{old('category')}}</option>
             <option value="drama">Drama</option>
             <option value="accion">Acción</option>
             <option value="ficcion">Ficción</option>
@@ -31,7 +42,7 @@
         <br><br>
         <label for="content">Contenido</label>
         <br>
-        <textarea name="content" id="content" cols="30" rows="10" required>{{$post->content}}</textarea>
+        <textarea name="content" id="content" cols="30" rows="10" required>{{old('content')}}</textarea>
         <br><br>
         <button type="submit">Actualizar post</button>
         <button onclick="return confirm('¿Estás seguro de que deseas regresar, los datos no se actualizaran?');">

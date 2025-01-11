@@ -33,6 +33,13 @@ class PostController extends Controller
         //  return request()->title; 
         // return $request->all();
 
+        $request->validate([
+            'title' => 'required',
+            // 'slug' => 'required',
+            'category' => 'required',
+            'content' => 'required', 
+        ]);
+
         Post::create($request->all());
 /*         $post = new Post();
 
@@ -63,6 +70,12 @@ class PostController extends Controller
     public function update(Request $request, Post $post){
         // return "aqui se actualizara el post {$post}";
         // $post = Post::find($post);
+        $request->validate([
+            'title' => 'required',
+            'slug' => "unique:posts,slug,{$post->id}",
+            'category' => 'required',
+            'content' => 'required', 
+        ]);
         $post->update($request->all());
     /*     $post->title = $request->title;
         $post->content = $request->content;
