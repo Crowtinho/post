@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -29,17 +30,21 @@ class PostController extends Controller
     public function create(){
         return view('posts.create');
     }
-    public function store(Request $request){
+    public function store(StorePostRequest $request){
         //  return request()->title; 
         // return $request->all();
 
-        $request->validate([
+   /*      $request->validate([
             'title' => 'required',
             // 'slug' => 'required',
             'category' => 'required',
             'content' => 'required', 
+        ],[
+            // aqui se ponen los mensajes
+        ],[
+            // aqui se ponen los atributos
         ]);
-
+ */
         Post::create($request->all());
 /*         $post = new Post();
 

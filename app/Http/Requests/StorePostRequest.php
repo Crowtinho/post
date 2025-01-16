@@ -11,7 +11,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,26 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|min:5|max:255',
+            // 'slug' => 'required',
+            'category' => 'required',
+            'content' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => ':attribute pon las cosas bien',
+            'category.required' => ':attribute es necesario seleccionar la categoria del post',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'perro',
+            'category' => 'maluco',
         ];
     }
 }
