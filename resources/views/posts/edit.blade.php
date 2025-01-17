@@ -27,22 +27,22 @@
 
 
         <label for="titulo">Titulo</label>
-        <input type="text" name="title" id="title" value="{{old('title')}}" required>
+        <input type="text" name="title" id="title" value="{{old('title', $post->title)}}" >
         {{-- <label for="slug">Slug</label> --}}
         {{-- <input type="text" name="slug" id="slug" value="{{$post->slug}}" hidden> --}}
         <br><br>
         <label for="category">Categoria</label>
-        <select name="category" id="category" required>
-            <option value="{{$post->category}}"selected >{{old('category')}}</option>
-            <option value="drama">Drama</option>
-            <option value="accion">Acción</option>
-            <option value="ficcion">Ficción</option>
-            <option value="romance">Romance</option>
+        <select name="category" id="category">
+            <option value="" disabled selected>{{ old('category', $post->category) ? ucfirst(old('category', $post->category)) : 'Selecciona una categoría' }}</option>
+            <option value="drama" {{ old('category', $post->category) == 'drama' ? 'selected' : '' }}>Drama</option>
+            <option value="accion" {{ old('category', $post->category) == 'accion' ? 'selected' : '' }}>Acción</option>
+            <option value="ficcion" {{ old('category', $post->category) == 'ficcion' ? 'selected' : '' }}>Ficción</option>
+            <option value="romance" {{ old('category', $post->category) == 'romance' ? 'selected' : '' }}>Romance</option>
         </select>
-        <br><br>
+        <br><br>         
         <label for="content">Contenido</label>
         <br>
-        <textarea name="content" id="content" cols="30" rows="10" required>{{old('content')}}</textarea>
+        <textarea name="content" id="content" cols="30" rows="10" >{{old('content', $post->content)}}</textarea>
         <br><br>
         <button type="submit">Actualizar post</button>
         <button onclick="return confirm('¿Estás seguro de que deseas regresar, los datos no se actualizaran?');">

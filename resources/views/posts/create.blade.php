@@ -33,14 +33,15 @@
         <input type="text" name="slug" id="slug" required>
         <br><br> --}}
         <label for="category">Categoria</label>
-        <select name="category" id="category" >
-            <option value="{{old('category')}}"disabled selected>{{old('category')}}</option>
-            <option value="drama">Drama</option>
-            <option value="accion">Acción</option>
-            <option value="ficcion">Ficción</option>
-            <option value="romance">Romance</option>
+        <select name="category" id="category">
+            <option value="" disabled selected>{{ old('category') ? ucfirst(old('category')) : 'Selecciona una categoría' }}</option>
+            <option value="drama" {{ old('category') == 'drama' ? 'selected' : '' }}>Drama</option>
+            <option value="accion" {{ old('category') == 'accion' ? 'selected' : '' }}>Acción</option>
+            <option value="ficcion" {{ old('category') == 'ficcion' ? 'selected' : '' }}>Ficción</option>
+            <option value="romance" {{ old('category') == 'romance' ? 'selected' : '' }}>Romance</option>
         </select>
         <br><br>
+        
         <label for="content">Contenido</label>
         <br>
         <textarea name="content" id="content" cols="30" rows="10">{{old('content')}}</textarea>
