@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Formulario para crear un nuevo post</h1>
-
+    {{-- {{__('Client Closed Request ')}} --}}
     @if ($errors->any())
         <div>
             <h2>Errores:</h2>

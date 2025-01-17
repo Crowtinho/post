@@ -29,7 +29,7 @@ class StorePostRequest extends FormRequest
         ];
     }
 
-    public function messages()
+/*     public function messages()
     {
         return [
             'title.required' => ':attribute pon las cosas bien',
@@ -43,5 +43,5 @@ class StorePostRequest extends FormRequest
             'title' => 'perro',
             'category' => 'maluco',
         ];
-    }
+    } */
 }
