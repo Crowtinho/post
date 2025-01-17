@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Formulario para crear un nuevo post</h1>
-
+    {{-- {{__('Client Closed Request ')}} --}}
     @if ($errors->any())
         <div>
             <h2>Errores:</h2>
@@ -26,7 +26,7 @@
 
         @csrf
         <label for="titulo">Titulo</label>
-        <input type="text" name="title" id="title" value="{{old('title')}}" required>
+        <input type="text" name="title" id="title" value="{{old('title')}}">
         <br><br>
 
 {{--         <label for="slug">Slug</label>
@@ -34,7 +34,7 @@
         <br><br> --}}
         <label for="category">Categoria</label>
         <select name="category" id="category" >
-            <option value="{{old('category')}}"disabled selected>Selecciona una categoria</option>
+            <option value="{{old('category')}}"disabled selected>{{old('category')}}</option>
             <option value="drama">Drama</option>
             <option value="accion">Acción</option>
             <option value="ficcion">Ficción</option>
@@ -43,7 +43,7 @@
         <br><br>
         <label for="content">Contenido</label>
         <br>
-        <textarea name="content" id="content" cols="30" rows="10" required>{{old('content')}}</textarea>
+        <textarea name="content" id="content" cols="30" rows="10">{{old('content')}}</textarea>
         <br><br>
         <button type="submit" onclick="return confirm('¿Desea crear el post?');">Crear post</button>
 
